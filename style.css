@@ -1,0 +1,29 @@
+.Navigations {
+    font-family: Arial, Helvetica, sans-serif;
+    color: aqua;
+}
+.nav-font {
+    color: greenyellow;
+}
+#paragraph-01 {
+    font-family: Arial, Helvetica, sans-serif;
+    font-size: medium;
+}
+
+.form {
+    font-family: Arial, Helvetica, sans-serif;
+}
+#subscribe-h1 {
+    color: yellow;
+}
+
+#button-1 {
+    border-radius: 5px;
+    background-color: aqua;
+    color: black;
+    cursor: pointer;
+ 
+}
+#bk {
+    background-color: rgb(81, 65, 65);
+}
