@@ -42,7 +42,7 @@
       </div>
       <div class="links">
         <p>Already Have Account ?</p>
-        <button id="signInButton">Sign In</button>
+        <button id="signInButton.">Sign In</button>
       </div>
     </div>
 
