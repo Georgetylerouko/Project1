@@ -1,81 +1,69 @@
+<?php 
+   session_start();
+?>
 <!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>NEEYONE Login</title>
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
-    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="style/style.css">
+    <title>Login</title>
 </head>
 <body>
-    <div class="container" id="signup" style="display:none;">
-      <h1 class="form-title">Register</h1>
-      <form method="post" action="register.php">
-        <div class="input-group">
-           <i class="fas fa-user"></i>
-           <input type="text" name="fName" id="fName" placeholder="First Name" required>
-           <label for="fname">First Name</label>
-        </div>
-        <div class="input-group">
-            <i class="fas fa-user"></i>
-            <input type="text" name="lName" id="lName" placeholder="Last Name" required>
-            <label for="lName">Last Name</label>
-        </div>
-        <div class="input-group">
-            <i class="fas fa-envelope"></i>
-            <input type="email" name="email" id="email" placeholder="Email" required>
-            <label for="email">Email</label>
-        </div>
-        <div class="input-group">
-            <i class="fas fa-lock"></i>
-            <input type="password" name="password" id="password" placeholder="Password" required>
-            <label for="password">Password</label>
-        </div>
-       <input type="submit" class="btn" value="Sign Up" name="signUp">
-      </form>
-      <p class="or">
-        ----------or--------
-      </p>
-      <div class="icons">
-        <i class="fab fa-google"></i>
-        <i class="fab fa-facebook"></i>
-      </div>
-      <div class="links">
-        <p>Already Have Account ?</p>
-        <button id="signInButton.">Sign In</button>
-      </div>
-    </div>
+      <div class="container">
+        <div class="box form-box">
+            <?php 
+             
+              include("php/config.php");
+              if(isset($_POST['submit'])){
+                $email = mysqli_real_escape_string($con,$_POST['email']);
+                $password = mysqli_real_escape_string($con,$_POST['password']);
 
-    <div class="container" id="signIn">
-        <h1 class="form-title">Sign In</h1>
-        <form method="post" action="register.php">
-          <div class="input-group">
-              <i class="fas fa-envelope"></i>
-              <input type="email" name="email" id="email" placeholder="Email" required>
-              <label for="email">Email</label>
-          </div>
-          <div class="input-group">
-              <i class="fas fa-lock"></i>
-              <input type="password" name="password" id="password" placeholder="Password" required>
-              <label for="password">Password</label>
-          </div>
-          <p class="recover">
-            <a href="#">Recover Password</a>
-          </p>
-         <input type="submit" class="btn" value="Sign In" name="signIn">
-        </form>
-        <p class="or">
-          ----------or--------
-        </p>
-        <div class="icons">
-          <i class="fab fa-google"></i>
-          <i class="fab fa-facebook"></i>
+                $result = mysqli_query($con,"SELECT * FROM users WHERE Email='$email' AND Password='$password' ") or die("Select Error");
+                $row = mysqli_fetch_assoc($result);
+
+                if(is_array($row) && !empty($row)){
+                    $_SESSION['valid'] = $row['Email'];
+                    $_SESSION['username'] = $row['Username'];
+                    $_SESSION['age'] = $row['Age'];
+                    $_SESSION['id'] = $row['Id'];
+                }else{
+                    echo "<div class='message'>
+                      <p>Wrong Username or Password</p>
+                       </div> <br>";
+                   echo "<a href='index.php'><button class='btn'>Go Back</button>";
+         
+                }
+                if(isset($_SESSION['valid'])){
+                    header("Location: home.php");
+                }
+              }else{
+
+            
+            ?>
+            <header>Login</header>
+            <form action="" method="post">
+                <div class="field input">
+                    <label for="email">Email</label>
+                    <input type="text" name="email" id="email" autocomplete="off" required>
+                </div>
+
+                <div class="field input">
+                    <label for="password">Password</label>
+                    <input type="password" name="password" id="password" autocomplete="off" required>
+                </div>
+
+                <div class="field">
+                    
+                    <input type="submit" class="btn" name="submit" value="Login" required>
+                </div>
+                <div class="links">
+                    Don't have account? <a href="register.php">Sign Up Now</a>
+                </div>
+            </form>
         </div>
-        <div class="links">
-          <p>Don't have account yet?</p>
-          <button id="signUpButton">Sign Up</button>
-        </div>
+        <?php } ?>
       </div>
-      <script src="script.js"></script>
 </body>
 </html>
