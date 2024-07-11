@@ -1,3 +1,6 @@
+<?php 
+   session_start();
+?>
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -13,11 +16,11 @@
 </head>
 <body>
     <header>
-        <h1 class="logo"><a href="index.html">FLAVYE</a></h1>
+        <h1 class="logo"><a href="homepage.php">FLAVYE</a></h1>
           <nav>
            <ul class="nav-links">
                <li><a href="services.html">Services</a></li>
-               <li class="active"><a href="contactUs.html">Contact Us</a></li>
+               <li class="active"><a href="contactUs.php">Contact Us</a></li>
            </ul>
           </nav>
           <div class="nav-btn">
