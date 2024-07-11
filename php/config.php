@@ -1,5 +1,5 @@
 <?php 
  
- $con = mysqli_connect("localhost","root","","register") or die("Couldn't connect");
+ $con = mysqli_connect("localhost","root","","registerdb") or die("Couldn't connect");
 
 ?>
