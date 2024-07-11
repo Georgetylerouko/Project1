@@ -1,0 +1,101 @@
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: poppins,sans-serif;
+    font-size: 0.9rem;
+    text-decoration: none;
+}
+body{
+    background: rgb(0, 0, 0);
+    line-height: 1.55;
+    }
+    header {
+        background-color: black;
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        height: 4rem;
+    }
+    /* this is for the lists of the navigation */
+    header .nav-links li {
+        display: inline-block;
+        padding: .5rem;
+    }
+
+    .nav-links a {
+        color: white;
+        font-weight: 500;
+    }
+    
+    .nav-links a:hover {
+        background-color: white;
+        color: black;
+        padding: .5rem;
+        border-radius: 15px;
+        transition: .5s ease-in-out;
+    }
+    
+    /* this is for the logo style*/
+    
+    .logo {
+        color: white;
+        font-size: 1.5rem;
+        padding-left: .5rem;
+    }
+    .logo a{
+        text-decoration: none;
+        color: white;
+        font-size: 2rem;
+    }
+/*ends here*/
+
+    .nav-links li a:active{
+        background-color: white;
+        color: black;
+        padding: .5rem;
+        border-radius: 15px;
+    }
+    
+    .logo a:hover{
+        color: rgba(255, 255, 255, 0.616);
+        cursor: pointer;
+        transition: .5s ease-in-out;
+    }
+    
+    #news i {
+        color: white;
+    }
+/*footer styling begins here*/
+    footer {
+        background-color: rgba(0, 0, 0, 0.632);
+        display: flex;
+        color: rgba(255, 255, 255, 0.671);
+        justify-content: space-between;
+        align-items: center;
+    }
+
+    .icons {
+        display: flex;
+        gap: .5rem;
+        align-items: center;
+    }
+    /* navigation button */
+    .nav-btn a {
+     color: black;
+     padding: .8rem;
+     font-size: .7rem;
+     font-weight: 700;
+    }
+    .nav-btn button{
+        background-color: white;
+        border: 1.5px solid white;
+        border-radius: 10px;
+    }
+    .nav-btn {
+        display: flex;
+        gap: 1rem;
+    }
+    /* navigation ends here */
+    /* form content goes here*/
+
