@@ -11,21 +11,6 @@
     <title>Login</title>
 </head>
 <body>
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
       <div class="container">
         <div class="box form-box">
             <?php 
