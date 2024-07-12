@@ -20,17 +20,16 @@
             $age = $_POST['age'];
             $password = $_POST['password'];
 
-         //verifying the unique email ( to  verify if the email is unique which means no duplicates of emails)
 
-         $verify_query = mysqli_query($con,"SELECT Email FROM users WHERE Email='$email'"); //connects to the db, if the email that the user has inserted into the database then it retur
+         $verify_query = mysqli_query($con,"SELECT Email FROM users WHERE Email='$email'"); 
 
-         if(mysqli_num_rows($verify_query) !=0 ){ //if the email is found, then it means the user needs to change the email as reffered by the echo message
+         if(mysqli_num_rows($verify_query) !=0 ){ 
             echo "<div class='message'>
                       <p>This email is used, Try another One Please!</p>
                   </div> <br>";
-            echo "<a href='javascript:self.history.back()'><button class='btn'>Go Back</button>"; // the javascrip:self.history.back() is used to return the user to the previous page. when he clicks the button
+            echo "<a href='javascript:self.history.back()'><button class='btn'>Go Back</button>"; 
          }
-         else{ // or else if their is no email found in the database it will insert the code into the database
+         else{ 
 
             mysqli_query($con,"INSERT INTO users(Username,Email,Age,Password) VALUES('$username','$email','$age','$password')") or die("Error Occured");
 

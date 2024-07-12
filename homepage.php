@@ -83,8 +83,6 @@
     </div>
     </div>
     <main>
-
-o0
     </main>
    <footer>
     <div>
